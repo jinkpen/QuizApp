@@ -1,0 +1,21 @@
+Android Quiz 3: Programming
+This represents a single screen within the user interface.>Activity
+The library where components like Activity and AlertDialog are defined.>app
+These are the essential building blocks of Android apps. Each is a different point through which the system can enter your app. Not all are actual entry points for the user and some depend on each other, but each one exists as its own entity and plays a specific role.>Application components
+Each Android app is compiled and packaged in a single file that includes all the app's code (.dex files), resources, assets, and manifests file. This may have any name but must use the .apk extension.>Android application package file
+This locates an appropriate component to respond to the intent, launches a new instance of the component if one is needed, and passes it to the Intent object.>Android OS
+In object-oriented programming, this is an unnamed class declared entirely within the body of another class or interface. They are often used for UI event handling.>Anonymous inner
+These are components that respond to system-wide broadcast announcements. Though these do not display a user interface, they may create a status bar notification to alert the user when a broadcast event occurs. More commonly, they act as a "gateway" to other components and are meant to do minimal work.>Broadcast receiver
+This supplies structured access to data managed by the application.>Content provider
+This is a data structure that maps identifying values to associated values.>Hash table/map
+You can use these to start activities, services, and broadcast receivers.>Intent
+With these, you describe the type of action to be performed (and optionally, the data on which the action is performed) and allow the system to find a component on the device that can perform the action and start it.>Intent actions
+This is a bundle of information describing the desired action, including the data to be acted upon, the category of the component to perform the action, and other pertinent instructions.>Intent object
+A file describing the contents, permissions, and other attributes of an Android application package.>Manifest
+This includes tools for developers to use to create applications for Android OS devices.>SDK
+These are components that run in the background to perform long-running operations or to perform work for remote processes. These do not provide a user interface. Another component (e.g. and activity) can start one of these and let it run or bind to it in order to interact with it.>Service
+Android system design allows any app to do this to another app's component. For example, if you want the user to capture a photo with the device camera, there is probably an existing app that your app can use instead of needing to develop the feature yourself.>Start
+If there are multiple components that can perform and action described by an intent, then this selects which one to use.>Intent filter
+The library where components like Random and List are defined.>util
+The library where components like OnClickListener are defined.>view
+The library where components like Button and TextView are defined.>widget

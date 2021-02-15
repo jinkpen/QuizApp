@@ -1,0 +1,21 @@
+Android Quiz 4: Data Persistence
+Use this for data persistence if data can be stored using key/value pairs.>SharedPreferences object
+Use this for data persistence if you need to store ad-hoc data.>Internal storage
+Use this for data persistence when you need to share application data with other users.>SD card
+Use this for data persistence if you need to save relational data.>Database
+To write to external storage, you need to add this permission to the AndroidManifest.xml file.>WRITE_EXTERNAL_STORAGE
+A generic term to describe any method of storing data that users expect to reuse in their apps at a later time.>Data persistence
+This method allows data saved with SharedPreferences to be shared among all the activities in an application.>getSharedPreferences
+This method allows data saved with SharedPreferences to be accessible only to the activity that created it.>getPreferences
+This constant indicates that the shared preferenced file can be opened only by the app that created it.>MODE_PRIVATE
+This is a kind of class used to encapsulate all the complexities of accessing data from a database.>Helper
+Android natively uses this database system.>SQLite
+If you use Android's native database system, the database that you create for an application is accessible only to that same ________.>Application
+You usually define several of these to contain the various fields for table you are going to create in your database.>Constants
+This method creates a new database if the required database is not present.>onCreate
+This method is called when an existing database needs to be changed to a newer version.>onUpgrade
+Android uses this class as a return value for queries.>Cursor
+The data returned from a query is known as this.>Result set
+Use this object to store key/value pairs. Its put method enables you to insert keys with values of different types.>ContentValues
+These classes are used to save data to a file.>FileOutputStream, OutputStreamReader
+These classes are used to read data from a file.>FileInputStream, InputStreamReader

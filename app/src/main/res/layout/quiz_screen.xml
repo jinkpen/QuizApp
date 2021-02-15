@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuizScreen">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="*"
+        android:shrinkColumns="0">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height = "0dp"
+            android:layout_weight = "1"
+            android:minHeight="60dp" >
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="2"
+                android:text="@string/tvTitle" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height = "0dp"
+            android:layout_weight = "1"
+            android:minHeight="300dp" >
+
+            <TextView
+                android:id="@+id/tvQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="2"
+                android:text="@string/tvQuestion" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height = "0dp"
+            android:layout_weight = "1"
+            android:minHeight="100dp">
+
+            <android.widget.Button
+                android:id="@+id/btnA1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/btnA1"
+                android:textColor="@color/dark_grey"/>
+
+            <android.widget.Button
+                android:id="@+id/btnA2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/btnA2"
+                android:textColor="@color/dark_grey"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height = "0dp"
+            android:layout_weight = "1"
+            android:minHeight="100dp">
+
+            <android.widget.Button
+                android:id="@+id/btnA3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/btnA3"
+                android:textColor="@color/dark_grey"/>
+
+            <android.widget.Button
+                android:id="@+id/btnA4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/btnA4"
+                android:textColor="@color/dark_grey"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height = "0dp"
+            android:layout_weight = "1"
+            android:minHeight="80dp" >
+
+            <android.widget.Button
+                android:id="@+id/btnNext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="2"
+                android:text="@string/btnNext"
+                android:textColor="@color/dark_grey"
+                tools:visibility="invisible"  />
+        </TableRow>
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

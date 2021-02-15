@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeScreen">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="*"
+        android:shrinkColumns="0">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5">
+
+            <EditText
+                android:id="@+id/teEnterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/teEnterName"
+                android:inputType="textPersonName"
+                android:importantForAutofill="no" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height = "0dp"
+            android:layout_weight = "0.5" >
+
+            <TextView
+                android:id="@+id/tvInvalidName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/tvInvalidName"
+                android:visibility="invisible"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height = "0dp"
+            android:layout_weight = "4" >
+
+            <Spinner
+                android:id="@+id/spChooseQuiz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height = "0dp"
+            android:layout_weight = "0.5">
+
+            <android.widget.Button
+                android:id="@+id/btnChooseQuiz"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/btnChooseQuiz" />
+        </TableRow>
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

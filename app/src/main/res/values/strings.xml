@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">QuizApp</string>
+    <string name="teEnterName">Enter your name</string>
+    <string name="tvInvalidName">No numbers or special characters</string>
+    <string name="btnChooseQuiz">Quiz me!</string>
+    <string name="tvTitle" />
+    <string name="tvQuestion" />
+    <string name="btnA1" />
+    <string name="btnA2" />
+    <string name="btnA3" />
+    <string name="btnA4" />
+    <string name="btnNext">Next</string>
+    <string name="tvNameMessage" />
+    <string name="tvResult" />
+</resources>

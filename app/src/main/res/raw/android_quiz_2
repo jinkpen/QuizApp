@@ -1,0 +1,21 @@
+Android Quiz 2: Design
+This gesture triggers the default functionality of a given item. Action: press, lift>Gesture - Touch
+This gesture enters data selection mode. It allows you to select one or more items in a view and act upon the data using a contextual action abr. Action: press, wait, lift>Gesture - Long Press
+This gesture scrolls overflowing content or navigates between views in the same hierarchy. Action: press, move, lift>Gesture - Swipe
+This gesture rearranges data within a view or moves data into a container (e.g. Home Screen folders). Action: long-press, move, lift>Gesture - Drag
+This gesture zooms into content. It is also used as a secondary gesture for next selection. Action: two touches in quick succession>Gesture - Double Touch
+This gesture zooms into content. Action: 2-finger press, move outward, lift>Gesture - Pinch Open
+This gesture zooms out of content. Action: 2-finger press, move inward, lift>Gesture - Pinch Closed
+This is used to navigate within an app based on hierarchical relationships between screens. For example, if screen A displays a list of items, and selecting an item leads to screen B, then screen B should offer an up button that returns to screen A.>Up button
+This is used to navigate, in reverse chronological order, through the history of screens the user has recently used. It is generally based on temporal relationships between screens rather than a hierarchy.>System back button
+Arguably the most important structural element of any app, it is a dedicated area at the top of the screen that is generally persistent. Functions include making important actions prominently and predictably accessible, supporting consistent navigation and view switching within apps, reducing clutter by providing an overflow for rarely used actions, providing a dedicated space for giving your app an identity.>Action bar
+These always take up the entire width of the bar, with the currently-active view item in the centre, and therefore need a dedicated bar. They themselves can be scrolled horizontally to bring more tabs into view and are often used when you have a large number of views.>Scrollable tabs
+These are always visible on the screen and cannot be moved out of the way. When in the main action bar, they can move to the tip bar when the screen orientation changes.>Fixed tabs
+This is a drop-down menu in the main action bar that allows users to switch between app views ans are often used in place of dedicated tab bars in order to save room or when you expect the user will switch views infrequently.>Spinners
+These controls are used on the action bar to 'surface' (present for launch) an app's most important activities.>Action buttons
+These are a way to make sure that you app consistently provides a balanced and aesthetically pleasing layout by adjusting its content to varying screen sizes and orientations. They allow you to combine multiple views into one compound view when a lot of horizontal screen space is available, or by splitting them up when less space is available.>Panels
+These allow the user to efficiently move between items using a simple gesture, making browsing and consuming data a more fluent experience. Often used where horizontal navigation can flatten vertical hierarchies to make accessing related data items faster.>Swipe views
+This is a temporary action bar that overlay's your app's current action bar while data is selected. It appears after the user long presses on a selectable data item.>Contextual action bar
+This allows you app to keep the user informed about important events, like new messages or a reminder.>Notifications
+These are Android's mechanism for applying a consistent style to an app or activity, the style specifies the visual properties of the elements comprising your UI (e.g. colour, height, padding, etc.).>Themes
+This tray stays at the bottom and hold your most important shortcuts and folders in view, regardless of which panel is showing.>Favourites
