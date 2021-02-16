@@ -49,14 +49,14 @@
 
             <android.widget.Button
                 android:id="@+id/btnA1"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:text="@string/btnA1"
                 android:textColor="@color/dark_grey"/>
 
             <android.widget.Button
                 android:id="@+id/btnA2"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:text="@string/btnA2"
                 android:textColor="@color/dark_grey"/>
@@ -70,14 +70,14 @@
 
             <android.widget.Button
                 android:id="@+id/btnA3"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:text="@string/btnA3"
                 android:textColor="@color/dark_grey"/>
 
             <android.widget.Button
                 android:id="@+id/btnA4"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:text="@string/btnA4"
                 android:textColor="@color/dark_grey"/>

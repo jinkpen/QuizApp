@@ -10,6 +10,6 @@
     <string name="btnA3" />
     <string name="btnA4" />
     <string name="btnNext">Next</string>
-    <string name="tvNameMessage" />
+    <string name="tvNameMsg" />
     <string name="tvResult" />
 </resources>

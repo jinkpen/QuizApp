@@ -49,13 +49,15 @@
                 android:id="@+id/spChooseQuiz"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:spinnerMode="dropdown"/>
+                android:minHeight="40dp"
+                android:spinnerMode="dropdown" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height = "0dp"
-            android:layout_weight = "0.5">
+            android:layout_weight = "0.5"
+            android:minHeight="80dp">
 
             <android.widget.Button
                 android:id="@+id/btnChooseQuiz"
