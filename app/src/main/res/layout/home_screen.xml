@@ -9,8 +9,12 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:shrinkColumns="0"
         android:stretchColumns="*"
-        android:shrinkColumns="0">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -19,44 +23,46 @@
 
             <EditText
                 android:id="@+id/teEnterName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:ems="10"
                 android:hint="@string/teEnterName"
-                android:inputType="textPersonName"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                android:inputType="textPersonName" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height = "0dp"
-            android:layout_weight = "0.5" >
+            android:layout_height="0dp"
+            android:layout_weight="0.5">
 
             <TextView
                 android:id="@+id/tvInvalidName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/tvInvalidName"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height = "0dp"
-            android:layout_weight = "4" >
+            android:layout_height="0dp"
+            android:layout_weight="4">
 
             <Spinner
                 android:id="@+id/spChooseQuiz"
+                style="@android:style/Widget.Material.Light.Spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:dropDownWidth="wrap_content"
                 android:minHeight="40dp"
                 android:spinnerMode="dropdown" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height = "0dp"
-            android:layout_weight = "0.5"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
             android:minHeight="80dp">
 
             <android.widget.Button

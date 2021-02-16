@@ -61,9 +61,10 @@ public class QuizScreen extends AppCompatActivity {
         btnNext.setOnClickListener(nextListener);
     }
 
+    //Loads quiz based on ID from home screen
     private void loadQuiz() {
         //Use key to get the correct quiz
-        int quizID = this.getResources().getIdentifier(extras.getString("QUIZ"), "raw", this.getPackageName());
+        int quizID = extras.getInt("QUIZ");
         String line = "";
         BufferedReader reader = null;
         InputStream inputStream;
@@ -92,6 +93,7 @@ public class QuizScreen extends AppCompatActivity {
                 }
                 count++;
             }
+            reader.close();
         } catch (Exception e) {
             Log.println(Log.ERROR, "Error reading line", e.getMessage());
         }
@@ -126,11 +128,11 @@ public class QuizScreen extends AppCompatActivity {
             if (possibleAnswers.size() == 4) {break;}
         }
         //Shuffle possible answers so that btnA1 is not always answer
-        //and then set the button text
+        //and then set the button colour
         shuffle(possibleAnswers);
         for (int i = 0; i < possibleAnswers.size(); i++) {
             answerButtons.get(i).setText(possibleAnswers.get(i));
-            answerButtons.get(i).setTextColor(Color.argb(255,80,80,80));
+            answerButtons.get(i).setBackgroundColor(Color.argb(255,58,124,236));
         }
         btnNext.setVisibility(View.INVISIBLE);
     }//end setupQuestion
@@ -140,10 +142,10 @@ public class QuizScreen extends AppCompatActivity {
         return answer.equals(answerKey.get(currentQuestion));
     }
 
-    //Reset button text colour to dark grey after press
+    //Reset button
     private void resetButton() {
         for (int i = 0; i < answerButtons.size(); i++) {
-            answerButtons.get(i).setTextColor(Color.argb(255,80,80,80));
+            answerButtons.get(i).setBackgroundColor(Color.argb(255,58,124,236));
         }
     }
 
@@ -156,12 +158,12 @@ public class QuizScreen extends AppCompatActivity {
             if (btnNext.getVisibility() == View.INVISIBLE) {
                 //If the answer is correct, change font colour to green
                 if (answerIsCorrect(click.getText().toString())) {
-                    click.setTextColor(Color.argb(255,0,128,0));
+                    click.setBackgroundColor(Color.argb(255,44,162,76));
                     score++;
                 }
-                //If the answer is incorrect, change the font color to red
+                //If the answer is incorrect, change the font colour to red
                 else {
-                    click.setTextColor(Color.argb(255,200, 0, 0));
+                    click.setBackgroundColor(Color.argb(255,227, 62, 43));
                 }
                 btnNext.setVisibility(View.VISIBLE);
             }

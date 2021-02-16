@@ -11,9 +11,7 @@ import java.util.*;
 public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private EditText teEnterName;
     private TextView tvInvalidName;
-    private Spinner dropdown;
-    private Button btnChooseQuiz;
-    private String quizName;
+    private int quizID;
     private Field[] fields = R.raw.class.getFields(); //gets quizzes in folder
 
     @Override
@@ -31,8 +29,8 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
 
         teEnterName = findViewById(R.id.teEnterName);
         tvInvalidName = findViewById(R.id.tvInvalidName);
-        btnChooseQuiz = findViewById(R.id.btnChooseQuiz);
-        dropdown = findViewById(R.id.spChooseQuiz);
+        Button btnChooseQuiz = findViewById(R.id.btnChooseQuiz);
+        Spinner dropdown = findViewById(R.id.spChooseQuiz);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, dropdownList);
         dropdown.setAdapter(adapter);
         dropdown.setOnItemSelectedListener(this);
@@ -42,8 +40,8 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
         if (position > 0) {
-            quizName = fields[position-1].getName();
-            System.out.println("Quiz name: " + quizName);
+            quizID = this.getResources().getIdentifier(fields[position-1].getName(), "raw", this.getPackageName());
+            System.out.println("Quiz ID: " + quizID);
         }
     }
 
@@ -56,14 +54,13 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         @Override
         public void onClick(View v) {
             if (nameIsValid(teEnterName.getText().toString())) {
-                if (quizName != null) {
+                if (quizID > 0) {
                     Intent intent = new Intent("QuizScreen");
                     Bundle extras = new Bundle();
-                    extras.putString("QUIZ", quizName);
+                    extras.putInt("QUIZ", quizID);
                     extras.putString("NAME", teEnterName.getText().toString());
                     intent.putExtras(extras);
                     startActivity(intent);
-
                 }
             }
             else {

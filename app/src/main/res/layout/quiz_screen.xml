@@ -10,93 +10,115 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:shrinkColumns="0"
         android:stretchColumns="*"
-        android:shrinkColumns="0">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height = "0dp"
-            android:layout_weight = "1"
-            android:minHeight="60dp" >
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:minHeight="60dp">
 
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="2"
-                android:text="@string/tvTitle" />
+                android:padding="4dp"
+                android:text="@string/tvTitle"
+                android:textSize="22sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height = "0dp"
-            android:layout_weight = "1"
-            android:minHeight="300dp" >
+            android:layout_height="0dp"
+            android:minHeight="300dp">
 
             <TextView
                 android:id="@+id/tvQuestion"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="2"
-                android:text="@string/tvQuestion" />
+                android:padding="8dp"
+                android:text="@string/tvQuestion"
+                android:textSize="18sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height = "0dp"
-            android:layout_weight = "1"
+            android:layout_height="0dp"
+            android:layout_weight="1.25"
+            android:weightSum="1"
             android:minHeight="100dp">
 
             <android.widget.Button
                 android:id="@+id/btnA1"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_column="0"
+                android:layout_margin="2dp"
+                android:background="@color/blue"
                 android:text="@string/btnA1"
-                android:textColor="@color/dark_grey"/>
+                android:textColor="@color/white" />
 
             <android.widget.Button
                 android:id="@+id/btnA2"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_margin="2dp"
+                android:background="@color/blue"
                 android:text="@string/btnA2"
-                android:textColor="@color/dark_grey"/>
+                android:textColor="@color/white" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height = "0dp"
-            android:layout_weight = "1"
+            android:layout_height="0dp"
+            android:layout_weight="1.25"
+            android:weightSum="1"
             android:minHeight="100dp">
 
             <android.widget.Button
                 android:id="@+id/btnA3"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_column="0"
+                android:layout_margin="2dp"
+                android:background="@color/blue"
                 android:text="@string/btnA3"
-                android:textColor="@color/dark_grey"/>
+                android:textColor="@color/white" />
 
             <android.widget.Button
                 android:id="@+id/btnA4"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_margin="2dp"
+                android:background="@color/blue"
                 android:text="@string/btnA4"
-                android:textColor="@color/dark_grey"/>
+                android:textColor="@color/white" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height = "0dp"
-            android:layout_weight = "1"
-            android:minHeight="80dp" >
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:minHeight="80dp">
 
             <android.widget.Button
                 android:id="@+id/btnNext"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="2dp"
                 android:layout_span="2"
                 android:text="@string/btnNext"
-                android:textColor="@color/dark_grey"
-                tools:visibility="invisible"  />
+                android:textColor="@color/blue"
+                tools:visibility="invisible" />
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
