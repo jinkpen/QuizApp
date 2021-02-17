@@ -51,11 +51,10 @@
 
             <Spinner
                 android:id="@+id/spChooseQuiz"
-                style="@android:style/Widget.Material.Light.Spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:dropDownWidth="wrap_content"
-                android:minHeight="40dp"
+                android:minHeight="60dp"
                 android:spinnerMode="dropdown" />
         </TableRow>
 
@@ -63,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
-            android:minHeight="80dp">
+            android:minHeight="40dp">
 
             <android.widget.Button
                 android:id="@+id/btnChooseQuiz"

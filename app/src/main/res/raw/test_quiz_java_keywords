@@ -1,0 +1,11 @@
+Java Keywords Quiz
+A non-access modifier used for methods and attributes, which allows them to be accessed without creating an object of a class.>static
+Refers to parent class objects.>super
+Refers to the current object in a method.>this
+Specifies that a method should not have a return value.>void
+A non-access modifier used for classes, attributes, and methods, which makes them impossible to inherit or override.>final
+Used with exceptions, a block of code that will execute regardless of whether there is an exception.>finally
+Used to declare a special type of class that contains only abstract methods.>interface
+Indicates that a class is inherited from another class.>extends
+A non-access modifier used for a) classes that cannot be used to create objects and must be accessed through an inheriting subclass, and b) methods for which the body is provided in a subclass.>abstract
+Advances to the next iteration of a loop.>continue
