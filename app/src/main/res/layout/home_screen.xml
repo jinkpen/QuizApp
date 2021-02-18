@@ -26,6 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
+                android:padding="4dp"
                 android:hint="@string/teEnterName"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName" />
@@ -40,6 +41,7 @@
                 android:id="@+id/tvInvalidName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:padding="8dp"
                 android:text="@string/tvInvalidName"
                 android:visibility="invisible" />
         </TableRow>
@@ -68,7 +70,8 @@
                 android:id="@+id/btnChooseQuiz"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/btnChooseQuiz" />
+                android:text="@string/btnChooseQuiz"
+                android:textColor="@color/blue" />
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

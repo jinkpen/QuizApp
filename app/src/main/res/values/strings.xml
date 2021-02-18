@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QuizApp</string>
+    <string name="app_name">Don\'t Google It!</string>
     <string name="teEnterName">Enter your name</string>
     <string name="tvInvalidName">No numbers or special characters</string>
     <string name="btnChooseQuiz">Quiz me!</string>
