@@ -20,9 +20,21 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         setContentView(R.layout.home_screen);
 
         ArrayList<String> dropdownList = new ArrayList<>(fields.length);
-        //Create a list of file name strings
+        //Create a list of file name strings, formatted so each word is
+        //capitalized and underscores are replaced with spaces
         for(int i = 0; i < fields.length; i++) {
-            dropdownList.add(fields[i].getName());
+            String[] temp = fields[i].getName().split("_");
+            String quizName = "";
+            System.out.println("Temp array before: " + Arrays.toString(temp));
+            for (int j = 0; j < temp.length; j++) {
+                temp[j] = String.valueOf(Character.toUpperCase(temp[j].charAt(0))) + temp[j].substring(1);
+                if (j < temp.length-1) {
+                    temp[j] += " ";
+                }
+                quizName += temp[j];
+            }
+            System.out.println("Quiz name: " + quizName);
+            dropdownList.add(quizName);
         }
         //Add menu title to the front of the list
         dropdownList.add(0, "Select a quiz");
