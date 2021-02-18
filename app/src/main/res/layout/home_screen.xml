@@ -70,8 +70,10 @@
                 android:id="@+id/btnChooseQuiz"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/next_button_color"
                 android:text="@string/btnChooseQuiz"
-                android:textColor="@color/blue" />
+                android:textColor="@color/white"
+                android:textSize="18sp" />
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -117,7 +117,8 @@
                 android:layout_margin="2dp"
                 android:layout_span="2"
                 android:text="@string/btnNext"
-                android:textColor="@color/blue"
+                android:background="@drawable/next_button_color"
+                android:textColor="@color/white"
                 tools:visibility="invisible" />
         </TableRow>
     </TableLayout>

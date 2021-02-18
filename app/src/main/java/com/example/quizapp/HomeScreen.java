@@ -27,7 +27,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
             String quizName = "";
             System.out.println("Temp array before: " + Arrays.toString(temp));
             for (int j = 0; j < temp.length; j++) {
-                temp[j] = String.valueOf(Character.toUpperCase(temp[j].charAt(0))) + temp[j].substring(1);
+                temp[j] = Character.toUpperCase(temp[j].charAt(0)) + temp[j].substring(1);
                 if (j < temp.length-1) {
                     temp[j] += " ";
                 }
