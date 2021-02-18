@@ -132,7 +132,7 @@ public class QuizScreen extends AppCompatActivity {
         shuffle(possibleAnswers);
         for (int i = 0; i < possibleAnswers.size(); i++) {
             answerButtons.get(i).setText(possibleAnswers.get(i));
-            answerButtons.get(i).setBackgroundColor(Color.argb(255,58,124,236));
+            answerButtons.get(i).setBackgroundColor(Color.argb(255,66,133,244));
         }
         btnNext.setVisibility(View.INVISIBLE);
     }//end setupQuestion
@@ -145,7 +145,7 @@ public class QuizScreen extends AppCompatActivity {
     //Reset button
     private void resetButton() {
         for (int i = 0; i < answerButtons.size(); i++) {
-            answerButtons.get(i).setBackgroundColor(Color.argb(255,58,124,236));
+            answerButtons.get(i).setBackgroundColor(Color.argb(255,66,133,244));
         }
     }
 
@@ -158,12 +158,12 @@ public class QuizScreen extends AppCompatActivity {
             if (btnNext.getVisibility() == View.INVISIBLE) {
                 //If the answer is correct, change font colour to green
                 if (answerIsCorrect(click.getText().toString())) {
-                    click.setBackgroundColor(Color.argb(255,44,162,76));
+                    click.setBackgroundColor(Color.argb(255,52,168,83));
                     score++;
                 }
                 //If the answer is incorrect, change the font colour to red
                 else {
-                    click.setBackgroundColor(Color.argb(255,227, 62, 43));
+                    click.setBackgroundColor(Color.argb(255,234, 67, 53));
                 }
                 btnNext.setVisibility(View.VISIBLE);
             }

@@ -43,7 +43,9 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         tvInvalidName = findViewById(R.id.tvInvalidName);
         Button btnChooseQuiz = findViewById(R.id.btnChooseQuiz);
         Spinner dropdown = findViewById(R.id.spChooseQuiz);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, dropdownList);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, dropdownList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_base, dropdownList);
+        adapter.setDropDownViewResource(R.layout.custom_spinner);
         dropdown.setAdapter(adapter);
         dropdown.setOnItemSelectedListener(this);
         btnChooseQuiz.setOnClickListener(chooseQuizListener);
