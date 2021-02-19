@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Don\'t Google It!</string>
     <string name="teEnterName">Enter your name</string>
-    <string name="tvInvalidName">No numbers or special characters</string>
+    <string name="tvInvalidName">No numbers, special characters, or spaces</string>
     <string name="btnChooseQuiz">Quiz me!</string>
     <string name="tvTitle" />
     <string name="tvQuestion" />

@@ -19,48 +19,40 @@ import java.util.HashMap;
 public class QuizScreen extends AppCompatActivity {
     private Bundle extras;
     private TextView tvTitle,tvQuestion;
-    private Button btnNext;
-
+    Button[] answerButtons = new Button[4];
+    Button btnNext;
     private String quizTitle;
     private String correctAnswer;
     private int score = 0;
-    private int numQuestions;
     private HashMap<String,String> answerKey = new HashMap<>();
     private ArrayList<String> questions = new ArrayList<>();
     private ArrayList<String> answers = new ArrayList<>();
-    private ArrayList<Button> answerButtons = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz_screen);
         extras = getIntent().getExtras();
-        Button btnA1 = findViewById(R.id.btnA1);
-        Button btnA2 = findViewById(R.id.btnA2);
-        Button btnA3 = findViewById(R.id.btnA3);
-        Button btnA4 = findViewById(R.id.btnA4);
+
+        //Set up UI
+        answerButtons[0] = findViewById(R.id.btnA1);
+        answerButtons[1] = findViewById(R.id.btnA2);
+        answerButtons[2] = findViewById(R.id.btnA3);
+        answerButtons[3] = findViewById(R.id.btnA4);
         btnNext = findViewById(R.id.btnNext);
         tvTitle = findViewById(R.id.tvTitle);
         tvQuestion = findViewById(R.id.tvQuestion);
 
-        //Add buttons to button array
-        answerButtons.add(btnA1);
-        answerButtons.add(btnA2);
-        answerButtons.add(btnA3);
-        answerButtons.add(btnA4);
+        for (int i = 0; i < answerButtons.length; i++) {
+            answerButtons[i].setOnClickListener(answerListener);
+        }
+        btnNext.setOnClickListener(nextListener);
 
-        //Load the quiz and set the title
+        //Load quiz, set title, and set up a question
         loadQuiz();
         tvTitle.setText(quizTitle);
-        numQuestions = questions.size();
         setupQuestion();
-
-        btnA1.setOnClickListener(answerListener);
-        btnA2.setOnClickListener(answerListener);
-        btnA3.setOnClickListener(answerListener);
-        btnA4.setOnClickListener(answerListener);
-        btnNext.setOnClickListener(nextListener);
-    }
+    }//end onCreate
 
     //Loads quiz based on ID from home screen
     private void loadQuiz() {
@@ -98,6 +90,7 @@ public class QuizScreen extends AppCompatActivity {
             Log.e("ReadFile", "An error occurred trying to read the quiz file.");
         }
         Log.v("ReadFile", "Quiz loaded");
+        Collections.shuffle(questions);
     }//end loadQuiz
 
     //Method that sets up questions
@@ -105,29 +98,29 @@ public class QuizScreen extends AppCompatActivity {
         ArrayList<String> possibleAnswers = new ArrayList<>();
         //Shuffle questions list and remove/save the first element
         //as the current question and set the question text
-        Collections.shuffle(questions);
         String currentQuestion = questions.remove(0);
         tvQuestion.setText(currentQuestion);
         //Save the correct answer and
         correctAnswer = answerKey.get(currentQuestion);
         Collections.shuffle(answers);
+
         //Add the correct answer to the possible answers list
         possibleAnswers.add(correctAnswer);
         //Add three more answers to the possible answers list (no dupes)
-        for (int i = 0; i < answers.size(); i++) {
+        for (int i = 0; possibleAnswers.size() < 4; i++) {
             if (!possibleAnswers.contains(answers.get(i))) {
                 possibleAnswers.add(answers.get(i));
             }
-            System.out.println("Possible answers: " + possibleAnswers);
-            if (possibleAnswers.size() == 4) {break;}
+            //if (possibleAnswers.size() == 4) {break;}
         }
         //Shuffle possible answers so that btnA1 is not always answer
         //and then set the button colour
         Collections.shuffle(possibleAnswers);
         for (int i = 0; i < possibleAnswers.size(); i++) {
-            answerButtons.get(i).setText(possibleAnswers.get(i));
-            answerButtons.get(i).setBackgroundColor(Color.argb(255,66,133,244));
+            answerButtons[i].setText(possibleAnswers.get(i));
+            answerButtons[i].setBackgroundColor(Color.argb(255,66,133,244));
         }
+
         btnNext.setVisibility(View.INVISIBLE);
     }//end setupQuestion
 
@@ -139,7 +132,6 @@ public class QuizScreen extends AppCompatActivity {
             //If no answer has been selected
             if (btnNext.getVisibility() == View.INVISIBLE) {
                 //If the answer is correct, change font colour to green
-                //if (answerIsCorrect(click.getText().toString())) {
                 if (click.getText().equals(correctAnswer)) {
                     click.setBackgroundColor(Color.argb(255,52,168,83));
                     score++;
@@ -164,7 +156,7 @@ public class QuizScreen extends AppCompatActivity {
             //If there are no questions left, go to results screen with calculated score
             else {
                 Intent i = new Intent("ResultScreen");
-                extras.putInt("NUM", numQuestions);
+                extras.putInt("NUM", answers.size());
                 extras.putInt("SCORE", score);
                 extras.putString("TITLE", quizTitle);
                 i.putExtras(extras);

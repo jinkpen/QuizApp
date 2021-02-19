@@ -33,7 +33,6 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         for(int i = 0; i < fields.length; i++) {
             String[] temp = fields[i].getName().split("_");
             String quizName = "";
-            System.out.println("Temp array before: " + Arrays.toString(temp));
             for (int j = 0; j < temp.length; j++) {
                 temp[j] = Character.toUpperCase(temp[j].charAt(0)) + temp[j].substring(1);
                 if (j < temp.length-1) {
@@ -41,7 +40,6 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
                 }
                 quizName += temp[j];
             }
-            System.out.println("Quiz name: " + quizName);
             dropdownList.add(quizName);
         }
         //Add menu title to the front of the list
@@ -63,7 +61,6 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
         if (position > 0) {
             quizID = this.getResources().getIdentifier(fields[position-1].getName(), "raw", this.getPackageName());
-            System.out.println("Quiz ID: " + quizID);
         }
     }
 
