@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.widget.Button;
 import android.widget.TextView;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class QuizScreen extends AppCompatActivity {
     private Button btnNext;
 
     private String quizTitle;
-    private String currentQuestion;
+    private String correctAnswer;
     private int score = 0;
     private int numQuestions;
     private HashMap<String,String> answerKey = new HashMap<>();
@@ -68,15 +69,9 @@ public class QuizScreen extends AppCompatActivity {
         String line = "";
         BufferedReader reader = null;
         InputStream inputStream;
-        //Try opening the file (log if there are errors)
         try {
             inputStream = getResources().openRawResource(quizID);
             reader = new BufferedReader(new InputStreamReader(inputStream));
-        } catch (Exception e) {
-            Log.println(Log.ERROR, "Error opening file", e.getMessage());
-        }
-        //Try reading the file line-by-line (log if there are any errors)
-        try {
             int count = 0;
             while ((line=reader.readLine()) != null) {
                 //Store the first line as title
@@ -94,31 +89,30 @@ public class QuizScreen extends AppCompatActivity {
                 count++;
             }
             reader.close();
-        } catch (Exception e) {
-            Log.println(Log.ERROR, "Error reading line", e.getMessage());
+            inputStream.close();
         }
+        catch (IOException e) {
+            Log.e("ReadFile", "Unable to read selected file.");
+        }
+        catch (Exception e) {
+            Log.e("ReadFile", "An error occurred trying to read the quiz file.");
+        }
+        Log.v("ReadFile", "Quiz loaded");
     }//end loadQuiz
 
-    //Method that shuffles the array passed to it
-    private void shuffle(ArrayList<String> list) {
-        Collections.shuffle(list);
-    }
-
-    //Method that shuffles the questions list and returns
-    //the question at the front of the list
-    private String chooseQuestion() {
-        shuffle(questions);
-        return questions.remove(0);
-    }
-
-    //Method that sets up the next question
+    //Method that sets up questions
     private void setupQuestion() {
         ArrayList<String> possibleAnswers = new ArrayList<>();
-        currentQuestion = chooseQuestion();
+        //Shuffle questions list and remove/save the first element
+        //as the current question and set the question text
+        Collections.shuffle(questions);
+        String currentQuestion = questions.remove(0);
         tvQuestion.setText(currentQuestion);
-        shuffle(answers);
+        //Save the correct answer and
+        correctAnswer = answerKey.get(currentQuestion);
+        Collections.shuffle(answers);
         //Add the correct answer to the possible answers list
-        possibleAnswers.add(answerKey.get(currentQuestion));
+        possibleAnswers.add(correctAnswer);
         //Add three more answers to the possible answers list (no dupes)
         for (int i = 0; i < answers.size(); i++) {
             if (!possibleAnswers.contains(answers.get(i))) {
@@ -129,25 +123,13 @@ public class QuizScreen extends AppCompatActivity {
         }
         //Shuffle possible answers so that btnA1 is not always answer
         //and then set the button colour
-        shuffle(possibleAnswers);
+        Collections.shuffle(possibleAnswers);
         for (int i = 0; i < possibleAnswers.size(); i++) {
             answerButtons.get(i).setText(possibleAnswers.get(i));
             answerButtons.get(i).setBackgroundColor(Color.argb(255,66,133,244));
         }
         btnNext.setVisibility(View.INVISIBLE);
     }//end setupQuestion
-
-    //Returns true if the pressed answer is correct
-    private boolean answerIsCorrect(String answer) {
-        return answer.equals(answerKey.get(currentQuestion));
-    }
-
-    //Reset button
-    private void resetButton() {
-        for (int i = 0; i < answerButtons.size(); i++) {
-            answerButtons.get(i).setBackgroundColor(Color.argb(255,66,133,244));
-        }
-    }
 
     //Listener for answer buttons
     View.OnClickListener answerListener = new View.OnClickListener() {
@@ -157,7 +139,8 @@ public class QuizScreen extends AppCompatActivity {
             //If no answer has been selected
             if (btnNext.getVisibility() == View.INVISIBLE) {
                 //If the answer is correct, change font colour to green
-                if (answerIsCorrect(click.getText().toString())) {
+                //if (answerIsCorrect(click.getText().toString())) {
+                if (click.getText().equals(correctAnswer)) {
                     click.setBackgroundColor(Color.argb(255,52,168,83));
                     score++;
                 }
@@ -168,7 +151,7 @@ public class QuizScreen extends AppCompatActivity {
                 btnNext.setVisibility(View.VISIBLE);
             }
         }
-    };
+    };//end answerListener
 
     //Listener for the next button
     View.OnClickListener nextListener = new View.OnClickListener() {
@@ -176,8 +159,6 @@ public class QuizScreen extends AppCompatActivity {
         public void onClick(View v) {
             //If there are still questions left, set up a new question
             if (questions.size() > 0) {
-                resetButton();
-                btnNext.setVisibility(View.INVISIBLE);
                 setupQuestion();
             }
             //If there are no questions left, go to results screen with calculated score
@@ -190,6 +171,6 @@ public class QuizScreen extends AppCompatActivity {
                 startActivity(i);
             }
         }
-    };
+    };//end nextListener
 
 }
