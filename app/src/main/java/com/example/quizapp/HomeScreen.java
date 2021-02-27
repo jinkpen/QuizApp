@@ -2,8 +2,12 @@ package com.example.quizapp;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.content.Intent;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import android.view.*;
 
@@ -90,10 +94,50 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         return input.matches("[a-zA-Z]+");
     }
 
+    //Method to detect when area outside the edit text is touched so keyboard hides
+    //I can't believe how ridiculously hard this was to achieve!!!
+    //The input method manager seems so extra
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        View view = getCurrentFocus();
+        if (view != null && (event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_MOVE)
+                && view instanceof EditText && !view.getClass().getName().startsWith("android.webkit.")) {
+            int[] sourceCoordinates = new int[2];
+            //Get absolute coordinates of view
+            view.getLocationOnScreen(sourceCoordinates);
+            //getLeft() returns the x value of view relative to parent
+            //getRawX() + getRawY() are coordinates of where screen was touched
+            float x = event.getRawX() + view.getLeft() - sourceCoordinates[0];
+            float y = event.getRawY() + view.getTop() - sourceCoordinates[1];
+            //If screen touch is outside the edit text, hide the keyboard
+            if (x < view.getLeft() || x > view.getRight() || y < view.getTop() || y > view.getBottom()) {
+                hideKeyboard(this);
+            }
+        }
+        return super.dispatchTouchEvent(event);
+    }
+
+    //Method to hide the keyboard
+    private void hideKeyboard(Activity activity) {
+        if (activity != null && activity.getWindow() != null) {
+            activity.getWindow().getDecorView();
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null) {
+                imm.hideSoftInputFromWindow(activity.getWindow().getDecorView().getWindowToken(), 0);
+            }
+        }
+    }
+
 }
 /*
     References
+
     https://stackoverflow.com/questions/6539715/android-how-do-can-i-get-a-list-of-all-files-in-a-folder
     https://stackoverflow.com/questions/13377361/how-to-create-a-drop-down-list
+    https://stackoverflow.com/questions/64662485/solution-for-hiding-soft-keyboard-when-touching-outside-of-any-part-of-screen-in
+    The keyboard solution made me remember (and appreciate) an intro to OOP assignment where I had to make an
+    object move around a cartesian plane based on input directions.
+
+    Questions for the Java keyword quiz from here https://www.w3schools.com/java/java_ref_keywords.asp
 
  */
