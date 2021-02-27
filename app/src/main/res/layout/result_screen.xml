@@ -8,39 +8,61 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:shrinkColumns="0"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="80dp"
+            android:minHeight="80dp">
 
             <TextView
                 android:id="@+id/tvTitle2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tvTitle" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="2"
+                android:padding="4dp"
+                android:text="@string/tvTitle"
+                android:textSize="22sp"/>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="0dp"
+            android:weightSum="1"
+            android:minHeight="100dp" >
 
             <TextView
                 android:id="@+id/tvResult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="0"
                 android:text="@string/tvResult" />
+
+            <TextView
+                android:id="@+id/tvNameMsg"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_column="0"
+                android:text="@string/tvNameMsg" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="0dp"
+            android:minHeight="450dp" >
 
-            <TextView
-                android:id="@+id/tvNameMsg"
+            <ImageView
+                android:id="@+id/ivResultIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tvNameMsg" />
+                android:layout_span="2"
+                app:srcCompat="@drawable/smile_face" />
         </TableRow>
 
     </TableLayout>

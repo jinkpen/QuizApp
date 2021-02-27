@@ -1,5 +1,6 @@
 package com.example.quizapp;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.graphics.Color;
@@ -15,6 +16,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class QuizScreen extends AppCompatActivity {
     private Bundle extras;
@@ -33,6 +35,10 @@ public class QuizScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz_screen);
         extras = getIntent().getExtras();
+        //Set custom action bar
+        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.action_bar_custom);
 
         //Set up UI
         answerButtons[0] = findViewById(R.id.btnA1);
@@ -96,8 +102,7 @@ public class QuizScreen extends AppCompatActivity {
     //Method that sets up questions
     private void setupQuestion() {
         ArrayList<String> possibleAnswers = new ArrayList<>();
-        //Shuffle questions list and remove/save the first element
-        //as the current question and set the question text
+        //Remove and save first element as current question
         String currentQuestion = questions.remove(0);
         tvQuestion.setText(currentQuestion);
         //Save the correct answer and
@@ -111,16 +116,15 @@ public class QuizScreen extends AppCompatActivity {
             if (!possibleAnswers.contains(answers.get(i))) {
                 possibleAnswers.add(answers.get(i));
             }
-            //if (possibleAnswers.size() == 4) {break;}
         }
         //Shuffle possible answers so that btnA1 is not always answer
-        //and then set the button colour
+        //and then set the text and button colour
         Collections.shuffle(possibleAnswers);
         for (int i = 0; i < possibleAnswers.size(); i++) {
             answerButtons[i].setText(possibleAnswers.get(i));
             answerButtons[i].setBackgroundColor(Color.argb(255,66,133,244));
         }
-
+        //Hide the next button
         btnNext.setVisibility(View.INVISIBLE);
     }//end setupQuestion
 
@@ -131,14 +135,20 @@ public class QuizScreen extends AppCompatActivity {
             Button click = findViewById(v.getId());
             //If no answer has been selected
             if (btnNext.getVisibility() == View.INVISIBLE) {
-                //If the answer is correct, change font colour to green
+                //If the answer is correct, change button color to green
                 if (click.getText().equals(correctAnswer)) {
                     click.setBackgroundColor(Color.argb(255,52,168,83));
                     score++;
                 }
-                //If the answer is incorrect, change the font colour to red
+                //If the answer is incorrect, change button colour to red
+                //and the correct answer green (so user learns the answer)
                 else {
                     click.setBackgroundColor(Color.argb(255,234, 67, 53));
+                    for (int i = 0; i < answerButtons.length; i++) {
+                        if (answerButtons[i].getText().equals(correctAnswer)) {
+                            answerButtons[i].setBackgroundColor(Color.argb(255,52,168,83));
+                        }
+                    }
                 }
                 btnNext.setVisibility(View.VISIBLE);
             }

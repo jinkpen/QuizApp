@@ -20,12 +20,10 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        //Set custom action bar
+        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setCustomView(R.layout.action_bar_custom);
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.setDisplayShowHomeEnabled(true);
-//        actionBar.setIcon(R.mipmap.ic_launcher_foreground);
 
         ArrayList<String> dropdownList = new ArrayList<>(fields.length);
         //Create a list of file name strings, formatted so each word is
@@ -49,7 +47,6 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         tvInvalidName = findViewById(R.id.tvInvalidName);
         Button btnChooseQuiz = findViewById(R.id.btnChooseQuiz);
         Spinner dropdown = findViewById(R.id.spChooseQuiz);
-        //ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, dropdownList);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_base, dropdownList);
         adapter.setDropDownViewResource(R.layout.spinner_custom);
         dropdown.setAdapter(adapter);
