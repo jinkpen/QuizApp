@@ -2,7 +2,11 @@ package com.example.quizapp;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,8 +24,9 @@ public class ResultScreen extends AppCompatActivity {
 
         TextView tvTitle = findViewById(R.id.tvTitle2);
         TextView tvResult = findViewById(R.id.tvResult);
-        TextView tvNameMsg = findViewById(R.id.tvNameMsg);
         ImageView ivResultIcon = findViewById(R.id.ivResultIcon);
+        Button btnRestart = findViewById(R.id.btnRestart);
+        btnRestart.setOnClickListener(restartListener);
 
         Bundle extras = getIntent().getExtras();
         String name = extras.getString("NAME");
@@ -32,8 +37,7 @@ public class ResultScreen extends AppCompatActivity {
         System.out.println("Percent score: " + percentScore);
 
         tvTitle.setText(quizTitle);
-        tvNameMsg.setText(name + "'s score: ");
-        tvResult.setText(score + "/" + numQuestions);
+        tvResult.setText(String.format("%s's score: %d/%d", name, score, numQuestions));
         if (percentScore == 1)
             ivResultIcon.setImageResource(R.drawable.sunglasses_face);
         else if (percentScore >= 0.85)
@@ -44,5 +48,17 @@ public class ResultScreen extends AppCompatActivity {
             ivResultIcon.setImageResource(R.drawable.straight_face);
         else
             ivResultIcon.setImageResource(R.drawable.upset_face);
+    }
+
+    View.OnClickListener restartListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            startActivity(new Intent(ResultScreen.this, HomeScreen.class));
+        }
+    };
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, HomeScreen.class));
     }
 }

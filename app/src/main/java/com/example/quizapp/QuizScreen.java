@@ -175,4 +175,9 @@ public class QuizScreen extends AppCompatActivity {
         }
     };//end nextListener
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, HomeScreen.class));
+    }
+
 }

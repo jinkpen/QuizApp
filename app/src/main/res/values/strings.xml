@@ -10,6 +10,8 @@
     <string name="btnA3" />
     <string name="btnA4" />
     <string name="btnNext">Next</string>
-    <string name="tvNameMsg">BLAH</string>
+
     <string name="tvResult">BLAH</string>
+    <string name="btnRestart">Quiz me again!</string>
+    <string name="ivResultIcon">Old-style Google emoji face displayed. The emotion depicted is based on your score</string>
 </resources>
