@@ -28,25 +28,21 @@ public class ResultScreen extends AppCompatActivity {
         String quizTitle = extras.getString("TITLE");
         int score = extras.getInt("SCORE");
         int numQuestions = extras.getInt("NUM");
-        double percentScore = score/numQuestions;
-
+        double percentScore = (double)score/(double)numQuestions;
+        System.out.println("Percent score: " + percentScore);
 
         tvTitle.setText(quizTitle);
-        tvResult.setText(name + "'s score: ");
-        tvNameMsg.setText(score + "/" + numQuestions);
-        if (percentScore < 0.5)
-            ivResultIcon.setImageResource(R.drawable.upset_face);
-        else if (percentScore < 0.6)
-            ivResultIcon.setImageResource(R.drawable.sad_face);
-        else if (percentScore < 0.7)
-            ivResultIcon.setImageResource(R.drawable.straight_face);
-        else if (percentScore < 0.8)
-            ivResultIcon.setImageResource(R.drawable.smile_face);
-        else if (percentScore < 0.9)
-            ivResultIcon.setImageResource(R.drawable.smile_med_face);
-        else if (percentScore < 1)
-            ivResultIcon.setImageResource(R.drawable.smile_big_face);
-        else
+        tvNameMsg.setText(name + "'s score: ");
+        tvResult.setText(score + "/" + numQuestions);
+        if (percentScore == 1)
             ivResultIcon.setImageResource(R.drawable.sunglasses_face);
+        else if (percentScore >= 0.85)
+            ivResultIcon.setImageResource(R.drawable.smile_big_face);
+        else if (percentScore >= 0.7)
+            ivResultIcon.setImageResource(R.drawable.smile_face);
+        else if (percentScore >= 0.5)
+            ivResultIcon.setImageResource(R.drawable.straight_face);
+        else
+            ivResultIcon.setImageResource(R.drawable.upset_face);
     }
 }

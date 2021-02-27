@@ -25,43 +25,52 @@
                 android:id="@+id/tvTitle2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_span="2"
                 android:padding="4dp"
                 android:text="@string/tvTitle"
-                android:textSize="22sp"/>
+                android:textSize="24sp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:weightSum="1"
-            android:minHeight="100dp" >
-
-            <TextView
-                android:id="@+id/tvResult"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:text="@string/tvResult" />
+            android:layout_height="match_parent" >
 
             <TextView
                 android:id="@+id/tvNameMsg"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_column="0"
-                android:text="@string/tvNameMsg" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/tvNameMsg"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="center"
+                android:text="@string/tvResult"
+                android:textSize="20sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:minHeight="450dp" >
+            android:layout_weight="2">
 
             <ImageView
                 android:id="@+id/ivResultIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_span="2"
+                android:layout_gravity="center_vertical"
                 app:srcCompat="@drawable/smile_face" />
         </TableRow>
 
