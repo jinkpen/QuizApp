@@ -26,7 +26,7 @@ public class ResultScreen extends AppCompatActivity {
         TextView tvResult = findViewById(R.id.tvResult);
         ImageView ivResultIcon = findViewById(R.id.ivResultIcon);
         Button btnRestart = findViewById(R.id.btnRestart);
-        btnRestart.setOnClickListener(restartListener);
+        btnRestart.setOnClickListener(v -> startActivity(new Intent(ResultScreen.this, HomeScreen.class)));
 
         Bundle extras = getIntent().getExtras();
         String name = extras.getString("NAME");
@@ -37,7 +37,7 @@ public class ResultScreen extends AppCompatActivity {
         System.out.println("Percent score: " + percentScore);
 
         tvTitle.setText(quizTitle);
-        tvResult.setText(String.format("%s's score: %d/%d", name, score, numQuestions));
+        tvResult.setText(String.format("%s's score: \n %d/%d", name, score, numQuestions));
         if (percentScore == 1)
             ivResultIcon.setImageResource(R.drawable.sunglasses_face);
         else if (percentScore >= 0.85)
@@ -49,13 +49,6 @@ public class ResultScreen extends AppCompatActivity {
         else
             ivResultIcon.setImageResource(R.drawable.upset_face);
     }
-
-    View.OnClickListener restartListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            startActivity(new Intent(ResultScreen.this, HomeScreen.class));
-        }
-    };
 
     @Override
     public void onBackPressed() {

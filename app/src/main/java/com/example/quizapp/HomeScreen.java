@@ -2,7 +2,6 @@ package com.example.quizapp;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -10,9 +9,17 @@ import android.content.Intent;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import android.view.*;
-
 import java.lang.reflect.Field;
 import java.util.*;
+
+/*
+    This application was completed in accordance with
+    specifications outlined in assignment two for
+    MOBI 3002 at NSCC, Winter 2021.
+
+    Author: Jess Inkpen
+
+ */
 
 public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private EditText teEnterName;
@@ -24,7 +31,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
-        //Set custom action bar
+        //Set custom action bar that includes the app icon
         Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setCustomView(R.layout.action_bar_custom);
@@ -37,9 +44,8 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
             String quizName = "";
             for (int j = 0; j < temp.length; j++) {
                 temp[j] = Character.toUpperCase(temp[j].charAt(0)) + temp[j].substring(1);
-                if (j < temp.length-1) {
+                if (j < temp.length-1)
                     temp[j] += " ";
-                }
                 quizName += temp[j];
             }
             dropdownList.add(quizName);
@@ -60,9 +66,8 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-        if (position > 0) {
+        if (position > 0)
             quizID = this.getResources().getIdentifier(fields[position-1].getName(), "raw", this.getPackageName());
-        }
     }
 
     @Override
@@ -110,9 +115,8 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
             float x = event.getRawX() + view.getLeft() - sourceCoordinates[0];
             float y = event.getRawY() + view.getTop() - sourceCoordinates[1];
             //If screen touch is outside the edit text, hide the keyboard
-            if (x < view.getLeft() || x > view.getRight() || y < view.getTop() || y > view.getBottom()) {
+            if (x < view.getLeft() || x > view.getRight() || y < view.getTop() || y > view.getBottom())
                 hideKeyboard(this);
-            }
         }
         return super.dispatchTouchEvent(event);
     }
@@ -122,9 +126,8 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         if (activity != null && activity.getWindow() != null) {
             activity.getWindow().getDecorView();
             InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-            if (imm != null) {
+            if (imm != null)
                 imm.hideSoftInputFromWindow(activity.getWindow().getDecorView().getWindowToken(), 0);
-            }
         }
     }
 
@@ -139,5 +142,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     object move around a cartesian plane based on input directions.
 
     Questions for the Java keyword quiz from here https://www.w3schools.com/java/java_ref_keywords.asp
+
+    All emoji PNGs are derived from a screen shot I had
 
  */

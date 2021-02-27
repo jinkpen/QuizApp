@@ -49,9 +49,8 @@ public class QuizScreen extends AppCompatActivity {
         tvTitle = findViewById(R.id.tvTitle);
         tvQuestion = findViewById(R.id.tvQuestion);
 
-        for (int i = 0; i < answerButtons.length; i++) {
+        for (int i = 0; i < answerButtons.length; i++)
             answerButtons[i].setOnClickListener(answerListener);
-        }
         btnNext.setOnClickListener(nextListener);
 
         //Load quiz, set title, and set up a question
@@ -112,11 +111,11 @@ public class QuizScreen extends AppCompatActivity {
         //Add the correct answer to the possible answers list
         possibleAnswers.add(correctAnswer);
         //Add three more answers to the possible answers list (no dupes)
-        for (int i = 0; possibleAnswers.size() < 4; i++) {
-            if (!possibleAnswers.contains(answers.get(i))) {
+        for (int i = 0; possibleAnswers.size() < 4; i++)
+            if (!possibleAnswers.contains(answers.get(i)))
                 possibleAnswers.add(answers.get(i));
-            }
-        }
+
+
         //Shuffle possible answers so that btnA1 is not always answer
         //and then set the text and button colour
         Collections.shuffle(possibleAnswers);
@@ -144,11 +143,9 @@ public class QuizScreen extends AppCompatActivity {
                 //and the correct answer green (so user learns the answer)
                 else {
                     click.setBackgroundColor(Color.argb(255,234, 67, 53));
-                    for (int i = 0; i < answerButtons.length; i++) {
-                        if (answerButtons[i].getText().equals(correctAnswer)) {
+                    for (int i = 0; i < answerButtons.length; i++)
+                        if (answerButtons[i].getText().equals(correctAnswer))
                             answerButtons[i].setBackgroundColor(Color.argb(255,52,168,83));
-                        }
-                    }
                 }
                 btnNext.setVisibility(View.VISIBLE);
             }

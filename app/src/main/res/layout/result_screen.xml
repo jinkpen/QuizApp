@@ -42,7 +42,8 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/tvResult"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold"/>
         </TableRow>
 
         <TableRow
