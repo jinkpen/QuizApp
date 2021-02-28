@@ -17,7 +17,7 @@ After pressing the Quiz Me! button, you are taken
 to your selected quiz. For each question, you have 
 a choice between four answers on buttons. 
 
-![Screen shot of quiz activity](/QuizAppScreenShots/QuizActivity.png?raw=true) 
+![Screen shot of quiz activity](/QuizAppScreenShots/QuizActivity2.png?raw=true) 
 
 When you select an answer button, the Next button
 appears. If you get the answer right, the button 
