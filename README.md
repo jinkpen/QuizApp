@@ -23,7 +23,7 @@ When you select an answer button, the Next button
 appears. If you get the answer right, the button 
 turns green. 
 
-![Screen shot of correct answer](/QuizAppScreenShots/CorrectAnswer.png?raw=true) 
+![Screen shot of correct answer](/QuizAppScreenShots/CorrectAnswer2.png?raw=true) 
 
 Providing immediate feedback and correction in 
 response to an incorrect answer is important for
