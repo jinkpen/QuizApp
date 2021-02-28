@@ -36,7 +36,7 @@ answer turns green.
 When you have answered all the questions, the result
 screen displays your name and your score.
 
-![Screen shot of result activity](/QuizAppScreenShots/ResultActivity.png?raw=true) 
+![Screen shot of result activity](/QuizAppScreenShots/ResultActivity2.png?raw=true) 
 
 If you wish to add your own quizzes, please note
 that quiz files in the res/raw folder are organized
