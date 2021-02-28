@@ -31,7 +31,7 @@ reinforcing learning. If you get the question wrong,
 the button you pressed turns red and the correct
 answer turns green. 
 
-![Screen shot of incorrect answer](/QuizAppScreenShots/IncorrectAnswer.png?raw=true) 
+![Screen shot of incorrect answer](/QuizAppScreenShots/IncorrectAnswer2.png?raw=true) 
 
 When you have answered all the questions, the result
 screen displays your name and your score.
@@ -41,6 +41,8 @@ screen displays your name and your score.
 If you wish to add your own quizzes, please note
 that quiz files in the res/raw folder are organized
 as follows:
+First line is the title of the quiz.
+The lines that follow are formatted as below.
 Question>Answer
 In other words, the files are delimited with the >
 character.
