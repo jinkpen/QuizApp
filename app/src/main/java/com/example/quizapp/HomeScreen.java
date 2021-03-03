@@ -22,7 +22,7 @@ import java.util.*;
  */
 
 public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private EditText teEnterName;
+    private EditText etEnterName;
     private TextView tvInvalidName;
     private int quizID;
     private Field[] fields = R.raw.class.getFields(); //gets quizzes in folder
@@ -53,7 +53,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         //Add menu title to the front of the list
         dropdownList.add(0, "Select a quiz");
 
-        teEnterName = findViewById(R.id.teEnterName);
+        etEnterName = findViewById(R.id.etEnterName);
         tvInvalidName = findViewById(R.id.tvInvalidName);
         Button btnChooseQuiz = findViewById(R.id.btnChooseQuiz);
         Spinner dropdown = findViewById(R.id.spChooseQuiz);
@@ -78,12 +78,12 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     View.OnClickListener chooseQuizListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (nameIsValid(teEnterName.getText().toString())) {
+            if (nameIsValid(etEnterName.getText().toString())) {
                 if (quizID > 0) {
                     Intent intent = new Intent("QuizScreen");
                     Bundle extras = new Bundle();
                     extras.putInt("QUIZ", quizID);
-                    extras.putString("NAME", teEnterName.getText().toString());
+                    extras.putString("NAME", etEnterName.getText().toString());
                     intent.putExtras(extras);
                     startActivity(intent);
                 }

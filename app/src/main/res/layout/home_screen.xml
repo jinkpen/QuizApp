@@ -22,11 +22,11 @@
             android:layout_weight="0.5">
 
             <EditText
-                android:id="@+id/teEnterName"
+                android:id="@+id/etEnterName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
-                android:hint="@string/teEnterName"
+                android:hint="@string/etEnterName"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:keyboardNavigationCluster="false"
